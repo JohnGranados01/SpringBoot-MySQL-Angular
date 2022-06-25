@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,16 +13,20 @@ export class FacturaServiceService {
     
   }
 
-  public getFacturas() {
-    return this.http.get(`${this.url}/factura/findAll`, {headers:{
-      "Access-Control-Allow-Origin": "*"
-    }})
+  getFacturas(): Observable<any> {
+    return this.http.get(`${this.url}/factura/findAll`)
   }
 
-  public saveFacturas(){
-    return this.http.post(`${this.url}/factura/save`,{headers:{
-      "Access-Control-Allow-Origin": "*"
-    }})
+  public saveFacturas(date:Date, idcliente:number){
+    return this.http.post(`${this.url}/factura/save`, 
+    {
+      "num_factura":null,
+      "id_cliente":idcliente,
+      "fecha":date
+    }).subscribe(data=>{
+      console.log(data);
+      
+    })
   }
 
   // getConfig() {

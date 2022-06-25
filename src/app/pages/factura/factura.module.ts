@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { FacturaRoutingModule } from './factura-routing.module';
 import { FacturaComponent } from './factura.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { FacturaComponent } from './factura.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     FacturaRoutingModule
   ]
 })

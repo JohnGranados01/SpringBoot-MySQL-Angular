@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ICliente } from 'src/app/interfaces/cliente';
+import { IFactura } from 'src/app/interfaces/factura';
 import { ClienteServiceService } from 'src/app/Services/cliente-service.service';
 import { FacturaServiceService } from 'src/app/Services/factura-service.service';
 
@@ -8,16 +10,18 @@ import { FacturaServiceService } from 'src/app/Services/factura-service.service'
   templateUrl: './factura.component.html',
   styleUrls: ['./factura.component.css']
 })
+
+
+
 export class FacturaComponent implements OnInit {
 
-  // clients: string[]=["John Granados","Carlos Vargas","Jorge Acevedo"]
+  factura: IFactura={numFactura:-1,fecha:new Date(),id_cliente:0}
   products: string[]=["Papa","Arroz","Papel"]
-  clients: []=[]
+  clients: ICliente[]=[]
   constructor(private router: Router, public clienteService: ClienteServiceService, public facturaService: FacturaServiceService) { }
 
   ngOnInit(): void {
-    this.getFacturas()
-    this.saveFacturas()
+    this.getClientes()
   }
 
   btnClientesClick(){
@@ -28,36 +32,16 @@ export class FacturaComponent implements OnInit {
     this.router.navigateByUrl("/producto")
   }
 
-  // async getClientes() {
-
-  //   await this.clienteService.getClientes().subscribe(
-  //     (res) =>{
-  //       console.log(res);
-        
-  //     }
-  //   )
-    
-  // }
-
-  async getFacturas() {
-
-    await this.facturaService.getFacturas().subscribe(
-      (res) =>{
-        console.log(res);
-        
-      }
-    )
-    
+  btnGuardarFactura(){
+    this.facturaService.saveFacturas(this.factura.fecha, this.factura.id_cliente)
   }
 
-  async saveFacturas() {
+  getClientes() {
 
-    await this.facturaService.saveFacturas().subscribe(
+    this.clienteService.getClientes().subscribe(
       (res) =>{
-        console.log(res);
-        
+        this.clients = res
       }
     )
-    
   }
 }

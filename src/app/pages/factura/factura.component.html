@@ -2,34 +2,35 @@
     <div class="card">
         <h4>Crear Factura</h4>
         <form action="">
+            
             <div>
                 <label for="">Fecha</label>
-                <input type="date" class="input2" required>
+                <input type="date" name="fecha" class="input2" required [(ngModel)]="factura.fecha">
             </div>
             <div>
                 <label for="">Cliente</label>
-                <select type="text" class="input2">
-                    <option value="0">Seleccione uno....</option>
-                    <option [value]="client" *ngFor="let client of clients">{{client}}</option>
+                <select type="text" name="id_cliente" class="input2" [(ngModel)]='factura.id_cliente'>
+                    <!-- <option value="0">Seleccione uno....</option> -->
+                    <option value={{client.id_cliente}} *ngFor="let client of clients">{{client.nombre+" "+client.apellido+" "+client.id_cliente}}</option>
                 </select>
             </div>
-            <!-- <div>
+            <div>
                 <label for="">Producto</label>
-                <select type="text" class="input2">
+                <select type="text" class="input2" disabled>
                     <option value="0">Seleccione uno....</option>
                     <option [value]="products" *ngFor="let producto of products">{{producto}}</option>
                 </select>
-            </div> -->
-            <!-- <div>
+            </div>
+            <div>
                 <label for="">Cantidad</label>
-                <input type="number" class="input">
+                <input type="number" class="input" disabled>
             </div>
             <div>
                 <label for="">Precio</label>
-                <input type="number" class="input">
-            </div> -->
+                <input type="number" class="input" disabled>
+            </div>
             <div>
-                <button class="button">Enviar</button>
+                <button class="button" (click)="btnGuardarFactura()">Enviar</button>
             </div>
         </form>
     </div>
