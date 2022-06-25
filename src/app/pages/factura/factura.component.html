@@ -4,30 +4,30 @@
         <form action="">
             <div>
                 <label for="">Fecha</label>
-                <input type="date" class="input2">
+                <input type="date" class="input2" required>
             </div>
             <div>
                 <label for="">Cliente</label>
-                <select type="text" class="input2" >
+                <select type="text" class="input2">
                     <option value="0">Seleccione uno....</option>
                     <option [value]="client" *ngFor="let client of clients">{{client}}</option>
                 </select>
             </div>
-            <div>
+            <!-- <div>
                 <label for="">Producto</label>
                 <select type="text" class="input2">
                     <option value="0">Seleccione uno....</option>
                     <option [value]="products" *ngFor="let producto of products">{{producto}}</option>
                 </select>
-            </div>
-            <div>
+            </div> -->
+            <!-- <div>
                 <label for="">Cantidad</label>
                 <input type="number" class="input">
             </div>
             <div>
                 <label for="">Precio</label>
                 <input type="number" class="input">
-            </div>
+            </div> -->
             <div>
                 <button class="button">Enviar</button>
             </div>
