@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "888ee3bd-1920-404d-8d37-787a464f7a6b",
+		"name": "PruebaTecnica Smartsoft",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14847657"
+	},
+	"item": [
+		{
+			"name": "Factura",
+			"item": [
+				{
+					"name": "Guardar Factura",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"num_factura\":null,\r\n    \"id_cliente\":4277669,\r\n    \"fecha\":\"2021-10-26\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/apirest/factura/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"apirest",
+								"factura",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Factura",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "javascript"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/apirest/factura/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"apirest",
+								"factura",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Muestra Facturas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/apirest/factura/findAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"apirest",
+								"factura",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Muestre Clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/apirest/cliente/findAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"apirest",
+								"cliente",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Guardar Clientes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_cliente\": 4277665,\r\n    \"nombre\": \"milton \",\r\n    \"apellido\": \"Granados Salamanca\",\r\n    \"direccion\": \"Cll 11 b 17 5\",\r\n    \"fecha_nacimiento\": \"1995-05-20\",\r\n    \"telefono\": 555,\r\n    \"email\": \"lina@mail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/apirest/cliente/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"apirest",
+								"cliente",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscar por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/apirest/cliente/1057610935",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"apirest",
+								"cliente",
+								"1057610935"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
